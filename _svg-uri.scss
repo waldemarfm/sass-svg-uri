@@ -1,3 +1,4 @@
+@use "sass:math";
 ////
 /// Helper function to easily use an SVG inline in CSS
 /// without encoding it to base64, saving bytes.
@@ -14,7 +15,7 @@
     $encoded: '';
     $slice: 2000;
     $index: 0;
-    $loops: ceil(str-length($svg) / $slice);
+    $loops: ceil(math.div(str-length($svg), $slice));
 
     @for $i from 1 through $loops {
         $chunk: str-slice($svg, $index, $index + $slice - 1);
