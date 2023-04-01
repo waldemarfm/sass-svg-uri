@@ -1,6 +1,6 @@
 {
   "name": "sass-svg-uri",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sass function to encode SVG as a data uri without it being in base64",
   "main": "_svg-uri.scss",
   "scripts": {
