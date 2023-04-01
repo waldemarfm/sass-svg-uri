@@ -30,7 +30,7 @@
         $index: $index + $slice;
     }
 
-    @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+    @return url("data:image/svg+xml,#{$encoded}");
 }
 
 /// Replace `$search` with `$replace` in `$string`
