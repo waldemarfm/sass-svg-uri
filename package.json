@@ -1,32 +1,37 @@
 {
   "name": "sass-svg-uri",
-  "version": "1.0.2",
   "description": "Sass module to encode SVGs as an optimized data URI",
-  "main": "_index.scss",
-  "scripts": {
-    "build-demo": "sass demo/styles.scss demo/styles.css",
-    "preversion": "npm test",
-    "test": "mocha"
+  "version": "1.0.2",
+  "author": "Waldemar Figueroa <me@waldemarfigueroa.com>",
+  "bugs": {
+    "url": "https://github.com/waldemarfm/sass-svg-uri/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/waldemarfm/sass-svg-uri.git"
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "mocha": "^10.2.0",
+    "sass": "^1.60.0",
+    "sass-true": "^7.0.0",
+    "semantic-release": "^21.0.1"
   },
+  "homepage": "https://github.com/waldemarfm/sass-svg-uri",
   "keywords": [
     "sass",
     "scss",
     "svg",
     "uri"
   ],
-  "author": "Waldemar Figueroa <me@waldemarfigueroa.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/waldemarfm/sass-svg-uri/issues"
+  "main": "_index.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waldemarfm/sass-svg-uri.git"
   },
-  "homepage": "https://github.com/waldemarfm/sass-svg-uri",
-  "devDependencies": {
-    "mocha": "^10.2.0",
-    "sass": "^1.60.0",
-    "sass-true": "^7.0.0"
+  "scripts": {
+    "build-demo": "sass demo/styles.scss demo/styles.css",
+    "preversion": "npm test",
+    "semantic-release": "semantic-release",
+    "test": "mocha"
   }
 }
