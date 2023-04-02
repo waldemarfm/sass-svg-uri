@@ -15,6 +15,7 @@
     "sass-true": "^7.0.0",
     "semantic-release": "^21.0.1"
   },
+  "files": ["CHANGELOG.md"],
   "homepage": "https://github.com/waldemarfm/sass-svg-uri",
   "keywords": [
     "sass",
