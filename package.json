@@ -3,6 +3,9 @@
   "version": "1.0.2",
   "description": "Sass module to encode SVGs as an optimized data URI",
   "main": "_index.scss",
+  "scripts": {
+    "build-demo": "sass demo/styles.scss demo/styles.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/waldemarfm/sass-svg-uri.git"
@@ -18,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/waldemarfm/sass-svg-uri/issues"
   },
-  "homepage": "https://github.com/waldemarfm/sass-svg-uri"
+  "homepage": "https://github.com/waldemarfm/sass-svg-uri",
+  "devDependencies": {
+    "sass": "^1.60.0"
+  }
 }
