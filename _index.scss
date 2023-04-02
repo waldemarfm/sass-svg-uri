@@ -1,0 +1,61 @@
+@use "sass:math";
+@use "sass:string";
+
+////
+/// Helper function to easily use an SVG inline in CSS
+/// without encoding it to base64, saving bytes.
+/// It also helps with browser support.
+////
+
+/// A small function allowing skipping base64 encoding
+/// and simply pasting the SVG markup right in the CSS.
+/// @author Jakob Eriksen
+/// @link http://codepen.io/jakob-e/pen/doMoML
+/// @param {String} $svg - SVG image to encode
+/// @return {String} - Encoded SVG data uri
+@function encode($svg) {
+  $encoded: "";
+  $slice: 2000;
+  $index: 0;
+  $loops: math.ceil(math.div(string.length($svg), $slice));
+
+  @for $i from 1 through $loops {
+    $chunk: string.slice($svg, $index, $index + $slice - 1);
+    $chunk: -str-replace($chunk, '"', "'");
+    $chunk: -str-replace($chunk, "%", "%25");
+    $chunk: -str-replace($chunk, "<", "%3C");
+    $chunk: -str-replace($chunk, ">", "%3E");
+    $chunk: -str-replace($chunk, "&", "%26");
+    $chunk: -str-replace($chunk, "#", "%23");
+    $chunk: -str-replace($chunk, "{", "%7B");
+    $chunk: -str-replace($chunk, "}", "%7D");
+    $encoded: #{$encoded}#{$chunk};
+    $index: $index + $slice;
+  }
+
+  @return url("data:image/svg+xml,#{$encoded}");
+}
+
+/// Replace `$search` with `$replace` in `$string`
+///
+/// @access private
+/// @author Hugo Giraudel
+/// @link http://sassmeister.com/gist/1b4f2da5527830088e4d
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function -str-replace($string, $search, $replace: "") {
+  $index: string.index($string, $search);
+
+  @if not $index {
+    @return $string;
+  }
+
+  @return string.slice($string, 1, $index - 1) + $replace +
+    -str-replace(
+      string.slice($string, $index + string.length($search)),
+      $search,
+      $replace
+    );
+}
