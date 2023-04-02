@@ -27,8 +27,6 @@
     $chunk: -str-replace($chunk, ">", "%3E");
     $chunk: -str-replace($chunk, "&", "%26");
     $chunk: -str-replace($chunk, "#", "%23");
-    $chunk: -str-replace($chunk, "{", "%7B");
-    $chunk: -str-replace($chunk, "}", "%7D");
     $encoded: #{$encoded}#{$chunk};
     $index: $index + $slice;
   }
